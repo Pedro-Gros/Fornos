@@ -3,17 +3,20 @@ import sys
 
 class ConexaoDB:
     def __init__(self, host = 'localhost',
-                       user ='pedro',
-                       pwd  ='1234'):
+                       user ='root',
+                       pwd  ='engenhariatdb',
+                       db = 'TEMP'):
         self.host = host
         self.user = user
         self.pwd  = pwd
+        self.db = db
 
 
     def conecta(self):
         self.con = mariadb.connect(host=self.host,
                                    user=self.user,
-                                   password=self.pwd
+                                   password=self.pwd,
+                                   database = self.db
                                    )
         self.cur = self.con.cursor()
 
@@ -32,4 +35,3 @@ class ConexaoDB:
         self.cur.execute(sql)
         self.con.commit()
         self.desconecta()
-print(ConexaoDB().executa_DQL("CREATE DATABASE temperatura"))

@@ -12,7 +12,6 @@ try:
     while True:
         date = datetime.now()
         data = date.strftime('%d/%m/%Y %H:%M')
-        print(data)
 
         t = spi.readbytes(2)
 
@@ -22,8 +21,8 @@ try:
         r_temp = msb[2:] + lsb[2:]
         t_bytes = "0b" + r_temp[0:13]
         temp = int(t_bytes, base=2)*0.25
-        print(temp)
-        #BancoDados().incluir("Dublin", data, "temp"))
+        BancoDados().incluir("Dublin", data, temp)
+        print(BancoDados().consulta())
         time.sleep(1800)
 except:
     print("Fim!")
