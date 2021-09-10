@@ -1,5 +1,4 @@
 import mariadb
-import sys
 
 class ConexaoDB:
     def __init__(self, host = 'localhost',
@@ -16,7 +15,7 @@ class ConexaoDB:
         self.con = mariadb.connect(host=self.host,
                                    user=self.user,
                                    password=self.pwd,
-                                   database = self.db
+                                   database=self.db
                                    )
         self.cur = self.con.cursor()
 
