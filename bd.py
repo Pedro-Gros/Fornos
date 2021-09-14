@@ -1,9 +1,9 @@
 from Conexao import ConexaoDB
 
 class BancoDados():
-    def incluir(self, maquina, temp):
+    def incluir(self, maquina, temp, status):
         c = ConexaoDB()
-        sql = f"INSERT INTO temp VALUES ('{maquina}', Now(),'{temp}')"
+        sql = f"INSERT INTO temp VALUES ('{maquina}', Now(),'{temp}', '{status}')"
         c.execute_DML(sql)
 
     def consulta(self):
@@ -12,3 +12,8 @@ class BancoDados():
         res = c.executa_DQL(sql)
         return res
 
+    def consulta_init(self):
+        c = ConexaoDB()
+        sql = f"SELECT * FROM temp"
+        res = c.executa_DQL(sql)
+        return res

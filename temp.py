@@ -13,10 +13,5 @@ while True:
     print(temp_ant)
     print(temp_ant2)
     print(temp_ant3)
-    #if temp > temp_ant and temp > 100:
-        #print("ligar nitrogenio")
-    #if temp < temp_ant and temp < 300:
-        #print("desligar nitrogenio")
-    BancoDados().incluir("Dublin", temp)
     time.sleep(1800)
 
